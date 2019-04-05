@@ -13,6 +13,7 @@ find_files() {
                 if [ $? == 0 ]
                 then
                     #we only want the ls -l for the exact filename
+		    ls -l | grep " $arg$"
                     ls -i | grep " $arg$"
                 fi
             done
