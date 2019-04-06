@@ -31,11 +31,25 @@ echo "Enter the day you were born (int): "
 
 read birthday
 
-#check if today is the user's birthday, exit if so
+#Feature 1:
+#If the current date is the user's birthday, print "Happy Birthday!"
+#Also print messages for Halloween, Christmas, St.Patrick's day, and Canada day
 if [[ birthMonth -eq thisMonth ]] && [[ birthday -eq today ]]
 then
     echo "Happy Birthday!"
     exit 0
+elif [[ thisMonth -eq 10 ]] && [[ today -eq 31 ]]
+then
+    echo "Have a spooky HalloweEeEEen!"
+elif [[ thisMonth -eq 12 ]] && [[ today -eq 25 ]]
+then
+    echo "Merry Christmas!"
+elif [[ thisMonth -eq 3 ]] && [[ today -eq 17 ]]
+then
+    echo "Don't get too drunk! It's St.Patrick's Day!"
+elif [[ thisMonth -eq 7 ]] && [[ today -eq 1 ]]
+then
+    echo "Happy Canada Day!"
 fi
 
 #check if the user's birthday is a leap day, account for the years
