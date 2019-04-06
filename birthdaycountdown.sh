@@ -19,6 +19,45 @@ today=$(date +%d)
 thisMonth=$(date +%m)
 thisYear=$(date +%Y)
 
+#Feature 2:
+#Using command line argument, the user can enter an offset (the number of days)
+#from the current date in the positive direction by at most 15 years. 
+if [[ $# == 1 ]]
+then
+    offset=$1
+    #max offset is 15 years, offset must be positive
+    let MAX_OFFSET=15*365
+    if [[ $offset -lt 0 ]] || [[ $offset -gt $MAX_OFFSET ]]
+    then
+	echo "Offset invalid, must be in the range of 0-15 years."
+	echo "Continuing without offset"
+	offset=0
+    else
+	#update current date to offset date
+	today=$(date +%d -d "$offset days")
+	thisMonth=$(date +%m -d "$offset days")
+	thisYear=$(date +%Y -d "$offset days")
+	
+	#Feature 3:
+	#If the offset date brings us to a special holiday,
+	#also give a festive message
+	if [[ thisMonth -eq 10 ]] && [[ today -eq 31 ]]
+	then
+	    echo "How spooky!"
+	elif [[ thisMonth -eq 12 ]] && [[ today -eq 25 ]]
+	then
+	    echo "Check under the Christmas tree!"
+	elif [[ thisMonth -eq 3 ]] && [[ today -eq 17 ]]
+	then
+	    echo "It's time to wear green!"
+	elif [[ thisMonth -eq 7 ]] && [[ today -eq 1 ]]
+	then
+	    echo "Listen to those fireworks!"
+	fi
+	echo "Offset by $offset days, the date is $(date -d "$offset days")"
+    fi
+fi
+
 nextYear=$thisYear #initialize nextyear as this year, to increment if needed
 daysToBirthday=0
 
@@ -36,7 +75,24 @@ read birthday
 #Also print messages for Halloween, Christmas, St.Patrick's day, and Canada day
 if [[ birthMonth -eq thisMonth ]] && [[ birthday -eq today ]]
 then
-    echo "Happy Birthday!"
+    #Feature 3:
+    #Check if the user’s birthday is one of the special holiday’s listed above.
+    #If so, provide a special festive birthday message to the user.
+    if [[ thisMonth -eq 10 ]] && [[ today -eq 31 ]]
+    then
+	echo "Happy BOOthday!"
+    elif [[ thisMonth -eq 12 ]] && [[ today -eq 25 ]]
+    then
+	echo "Ho ho ho, Merry Birthday!"
+    elif [[ thisMonth -eq 3 ]] && [[ today -eq 17 ]]
+    then
+	echo "It's your birthday AND St. Patrick's Day? Have fun but stay safe!"
+    elif [[ thisMonth -eq 7 ]] && [[ today -eq 1 ]]
+    then
+	echo "Have a Happy Canadian Birthday!"
+    else
+	echo "Happy Birthday!"
+    fi
     exit 0
 elif [[ thisMonth -eq 10 ]] && [[ today -eq 31 ]]
 then
@@ -53,7 +109,7 @@ then
 fi
 
 #check if the user's birthday is a leap day, account for the years
-if [[ $birthMonth -eq 2 ]] && [[ $birthday -eq 28 ]]
+if [[ $birthMonth -eq 2 ]] && [[ $birthday -eq 29 ]]
 then
     if [[ $birthMonth -lt $thisMonth ]] || ( [[ $today -le $birthday  ]] && [[ $birthMonth -ge $thisMonth ]] )
     then
@@ -79,20 +135,11 @@ fi
 newDate=$(date --date="$birthMonth/$birthday/$nextYear" +%s)
 
 #get current time in seconds since epoch
-now=$(date +%s)
+now=$(date --date="$thisMonth/$today/$thisYear" +%s)
 
 #compare the dates by subtracting todays seconds since epoch from the future birthday
 #and convert the resulting seconds to days
 let "daysToBirthday = ($newDate - $now)/(24 * 3600)"
-
-#accounting for a small discrepency when the user's birthday is tomorrow
-# which would be 0.0000-0.99999etc days away, which is represented as 0 (int)
-if [[ $daysToBirthday -eq 0 ]]
-then
-    daysToBirthday=1
-    # Note that this correction is okay, because if today is the user's birthday,
-    #it's accounted for at the beginning of the script
-fi
 
 echo "There are $daysToBirthday days until your birthday."
 
