@@ -1,7 +1,30 @@
 Project Plan:
-1, 2, 3, 5, 4
+The order we chose for completing the features: 1, 2, 3, 5, 4
 
+Mike: 1
+Morgenne: 2/3
+Jun: 5/4
 
+Since Mike coded the base program for 2a, it was fair to assign him
+only 1 of the features, and split the other 4 features amongst 
+Jun and Morgenne.
+
+Doing 1 first provides a good base for 3 to work off of, since
+3 also requires checking for the user's birthday and for special holidays.
+It also makes more sense to implement a happy birthday message right away,
+instead of telling users that there are 0 days until their birthdays.
+
+The other half of 3 relies on the completion of 2 for offset dates. Since
+we have 4 features to split between 2 people, it makes sense for one person
+to work on both 2 and 3 at once (instead of having one person waiting for
+2 to be completed so 3 can be started).
+
+5 requires the completion of at least feature 1, and is
+made easier by feature 3's completion.
+
+4 can be completed at any time (it only requires functionality of
+the base program). Since it provides minimal benefit to the completion
+of other features, it can be left to the end.
 
 #!/usr/bin/env bash
 

@@ -96,4 +96,5 @@ Reflection:
 
 When we merged the i-node update branch with the master branch, the i-node 
 branch overwrote what was done in the master branch without warning.
-We had to go back into the file after the merge to re-add the ls -l line.
+After the merge commit, we needed to go into the file to re-add the ls -l line,
+and do another commit for this properly merged version. 
