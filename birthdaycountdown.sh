@@ -10,7 +10,7 @@ function isLeap(){
     return 1 || return 0
 }
 
-#Feature 5: Loop through until user stops the script
+#Feature 4: Loop through until user stops the script
 while true
 do
     
@@ -74,7 +74,6 @@ do
 
     read birthday
 
-    #Feature 5
     echo "Enter the year you were born (int):"
 
     read birthYear
@@ -112,7 +111,7 @@ do
     #and convert the resulting seconds to days
     let "daysToBirthday = ($newDate - $now)/(24 * 3600)"
     
-    #Feature 4: Determines age
+    #Feature 5: Determines age
     if [[ $thisMonth -lt $birthMonth ]] || [[ $thisMonth -eq $birthMonth && $today -lt $birthday ]]
     then
         let "age = ($thisYear-$birthYear-1)"
