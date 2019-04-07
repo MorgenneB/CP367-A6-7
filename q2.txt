@@ -1,6 +1,8 @@
 Project Plan:
 1, 2, 3, 5, 4
 
+
+
 #!/usr/bin/env bash
 
 #Greet the user by figuring out their user name (who)
@@ -179,7 +181,100 @@ exit 0
 
 Testing:
 
+bash birthdaycountdown.sh
+Hello morgenne
+Enter the month you were born (int): 
+4
+Enter the day you were born (int): 
+7
+Enter the year you were born (int):
+1998
+Happy Birthday!
+You are 21 years old!
+Enter any key to continue or n to stop
+n 
 
+bash birthdaycountdown.sh 207
+How spooky!
+Offset by 207 days, the date is Thu Oct 31 17:00:11 EDT 2019
+Hello morgenne
+Enter the month you were born (int): 
+10
+Enter the day you were born (int): 
+31
+Enter the year you were born (int):
+1900
+Happy BOOthday!
+You are 119 years old!
+Enter any key to continue or n to stop
+y
+How spooky!
+Offset by 207 days, the date is Thu Oct 31 17:00:25 EDT 2019
+Hello morgenne
+Enter the month you were born (int): 
+1
+Enter the day you were born (int): 
+1
+Enter the year you were born (int):
+1996
+Have a spooky HalloweEeEEen!
+There are 62 days until your birthday.
+Enter any key to continue or n to stop
+n
+
+bash birthdaycountdown.sh 14
+Offset by 14 days, the date is Sun Apr 21 17:02:03 EDT 2019
+Hello morgenne
+Enter the month you were born (int): 
+2
+Enter the day you were born (int): 
+29
+Enter the year you were born (int):
+1990
+There are 314 days until your birthday.
+Enter any key to continue or n to stop
+n
+
+bash birthdaycountdown.sh 380
+Offset by 380 days, the date is Tue Apr 21 17:02:43 EDT 2020
+Hello morgenne
+Enter the month you were born (int): 
+2       
+Enter the day you were born (int): 
+29
+Enter the year you were born (int):
+1230
+There are 1409 days until your birthday.
+Enter any key to continue or n to stop
+n
+
+bash birthdaycountdown.sh 85
+Listen to those fireworks!
+Offset by 85 days, the date is Mon Jul  1 17:04:00 EDT 2019
+Hello morgenne
+Enter the month you were born (int): 
+7
+Enter the day you were born (int): 
+1
+Enter the year you were born (int):
+200 
+Have a Happy Canadian Birthday!
+You are 1819 years old!
+Enter any key to continue or n to stop
+
+Listen to those fireworks!
+Offset by 85 days, the date is Mon Jul  1 17:04:23 EDT 2019
+Hello morgenne
+Enter the month you were born (int): 
+7 
+Enter the day you were born (int): 
+30
+Enter the year you were born (int):
+1980
+Happy Canada Day!
+There are 29 days until your birthday.
+Enter any key to continue or n to stop
+n
 
 Git tree:
 * e203fcf (HEAD, origin/master, origin/HEAD, master) Added Features 4 and 5
