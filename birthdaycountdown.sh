@@ -7,13 +7,13 @@
 function isLeap(){
     checkYear=$1 #year to check
     (( !(checkYear % 4) && ( checkYear % 100 || !(checkYear % 400) ) )) &&
-      return 1 || return 0
+    return 1 || return 0
 }
 
 #Feature 5: Loop through until user stops the script
 while true
 do
-        
+    
     name=($(who))
     birthMonth=1
     birthday=1
@@ -33,32 +33,32 @@ do
         let MAX_OFFSET=15*365
         if [[ $offset -lt 0 ]] || [[ $offset -gt $MAX_OFFSET ]]
         then
-        echo "Offset invalid, must be in the range of 0-15 years."
-        echo "Continuing without offset"
-        offset=0
+            echo "Offset invalid, must be in the range of 0-15 years."
+            echo "Continuing without offset"
+            offset=0
         else
-        #update current date to offset date
-        today=$(date +%d -d "$offset days")
-        thisMonth=$(date +%m -d "$offset days")
-        thisYear=$(date +%Y -d "$offset days")
-        
-        #Feature 3:
-        #If the offset date brings us to a special holiday,
-        #also give a festive message
-        if [[ thisMonth -eq 10 ]] && [[ today -eq 31 ]]
-        then
-            echo "How spooky!"
-        elif [[ thisMonth -eq 12 ]] && [[ today -eq 25 ]]
-        then
-            echo "Check under the Christmas tree!"
-        elif [[ thisMonth -eq 3 ]] && [[ today -eq 17 ]]
-        then
-            echo "It's time to wear green!"
-        elif [[ thisMonth -eq 7 ]] && [[ today -eq 1 ]]
-        then
-            echo "Listen to those fireworks!"
-        fi
-        echo "Offset by $offset days, the date is $(date -d "$offset days")"
+            #update current date to offset date
+            today=$(date +%d -d "$offset days")
+            thisMonth=$(date +%m -d "$offset days")
+            thisYear=$(date +%Y -d "$offset days")
+            
+            #Feature 3:
+            #If the offset date brings us to a special holiday,
+            #also give a festive message
+            if [[ thisMonth -eq 10 ]] && [[ today -eq 31 ]]
+            then
+		echo "How spooky!"
+            elif [[ thisMonth -eq 12 ]] && [[ today -eq 25 ]]
+            then
+		echo "Check under the Christmas tree!"
+            elif [[ thisMonth -eq 3 ]] && [[ today -eq 17 ]]
+            then
+		echo "It's time to wear green!"
+            elif [[ thisMonth -eq 7 ]] && [[ today -eq 1 ]]
+            then
+		echo "Listen to those fireworks!"
+            fi
+            echo "Offset by $offset days, the date is $(date -d "$offset days")"
         fi
     fi
 
@@ -130,47 +130,47 @@ do
         #If so, provide a special festive birthday message to the user.
         if [[ thisMonth -eq 10 ]] && [[ today -eq 31 ]]
         then
-        echo "Happy BOOthday!"
-        echo "You are $age years old!"
+            echo "Happy BOOthday!"
+            echo "You are $age years old!"
         elif [[ thisMonth -eq 12 ]] && [[ today -eq 25 ]]
         then
-        echo "Ho ho ho, Merry Birthday!"
-        echo "You are $age years old!"
+            echo "Ho ho ho, Merry Birthday!"
+            echo "You are $age years old!"
         elif [[ thisMonth -eq 3 ]] && [[ today -eq 17 ]]
         then
-        echo "It's your birthday AND St. Patrick's Day? Have fun but stay safe!"
-        echo "You are $age years old!"
+            echo "It's your birthday AND St. Patrick's Day? Have fun but stay safe!"
+            echo "You are $age years old!"
         elif [[ thisMonth -eq 7 ]] && [[ today -eq 1 ]]
         then
-        echo "Have a Happy Canadian Birthday!"
-        echo "You are $age years old!"
+            echo "Have a Happy Canadian Birthday!"
+            echo "You are $age years old!"
         else
-        echo "Happy Birthday!"
-        echo "You are $age years old!"
+            echo "Happy Birthday!"
+            echo "You are $age years old!"
         fi
-        # exit 0
-    elif [[ thisMonth -eq 10 ]] && [[ today -eq 31 ]]
-    then
-        echo "Have a spooky HalloweEeEEen!"
-    elif [[ thisMonth -eq 12 ]] && [[ today -eq 25 ]]
-    then
-        echo "Merry Christmas!"
-    elif [[ thisMonth -eq 3 ]] && [[ today -eq 17 ]]
-    then
-        echo "Don't get too drunk! It's St.Patrick's Day!"
-    elif [[ thisMonth -eq 7 ]] && [[ today -eq 1 ]]
-    then
-        echo "Happy Canada Day!"
+    else
+	if [[ thisMonth -eq 10 ]] && [[ today -eq 31 ]]
+	then
+            echo "Have a spooky HalloweEeEEen!"
+	elif [[ thisMonth -eq 12 ]] && [[ today -eq 25 ]]
+	then
+            echo "Merry Christmas!"
+	elif [[ thisMonth -eq 3 ]] && [[ today -eq 17 ]]
+	then
+            echo "Don't get too drunk! It's St.Patrick's Day!"
+	elif [[ thisMonth -eq 7 ]] && [[ today -eq 1 ]]
+	then
+            echo "Happy Canada Day!"
+	fi
+	echo "There are $daysToBirthday days until your birthday."
     fi
-
-    echo "There are $daysToBirthday days until your birthday."
 
     echo "Enter any key to continue or n to stop"
     read ans
 
     if [[ $ans == "n" ]]
     then
-       break
+	break
     fi
 done
 exit 0

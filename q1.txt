@@ -1,0 +1,55 @@
+Code:
+
+#!/usr/bin/env bash
+#Recursively iterates through subdirectories, printing the ls -l result
+#of any file that matches a user argument
+find_files() {
+    for file in $PWD/*
+    do
+        #if regular file, determine if it matches any user arguments
+        if [ -f $file ]
+        then
+            for arg in $@
+            do
+                echo $file | grep -q /$arg$
+                if [ $? == 0 ]
+                then
+                    #we only want the ls -l for the exact filename
+		    ls -l | grep " $arg$"
+                    ls -i | grep " $arg$"
+                fi
+            done
+        #if directory is found, change to this directory to search
+        elif [ -d $file ]
+        then
+            cd $file
+            find_files $@
+            cd ..
+        fi
+    done
+    return 0
+}
+
+echo Searching for files...
+find_files $@
+echo Search complete!
+exit 0
+
+Testing:
+
+
+
+
+Git tree:
+
+* 2c7bdb5 (origin/master) Properly merged branches of Q1
+* fc43c88 (origin/branch-1) 1b - inode update
+* fa116b2 Functional Question 1a
+* 577b411 Initialized question 1
+* 218a1ae Initialized repository
+
+Reflection:
+
+When we merged the i-node update branch with the master branch, the i-node 
+branch overwrote what was done in the master branch without warning.
+We had to go back into the file after the merge to re-add the ls -l line.
