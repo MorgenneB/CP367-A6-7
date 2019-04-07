@@ -37,6 +37,19 @@ exit 0
 
 Testing:
 
+Directory Structure:
+q1test
+	coolfile.txt
+	dogs
+		lab.txt
+		pitbull.txt
+	helloworld.txt
+	listallthethings.sh
+	secret
+		extrasecret
+			diary.txt
+		journal.txt
+
 bash listallthethings.sh
 Searching for files...
 Search complete!
