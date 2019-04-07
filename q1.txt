@@ -37,8 +37,39 @@ exit 0
 
 Testing:
 
+bash listallthethings.sh
+Searching for files...
+Search complete!
 
+bash listallthethings.sh coolfile.txt
+Searching for files...
+-rw-rw-r--. 1 morgenne morgenne   0 Apr  7 16:22 coolfile.txt
+53199025 coolfile.txt
+Search complete!
 
+bash listallthethings.sh diary.txt journal.txt helloworld.txt
+Searching for files...
+-rw-rw-r--. 1 morgenne morgenne   0 Apr  7 16:21 helloworld.txt
+53199024 helloworld.txt
+-rw-rw-r--. 1 morgenne morgenne 0 Apr  7 16:20 diary.txt
+53199023 diary.txt
+-rw-rw-r--. 1 morgenne morgenne  0 Apr  7 16:22 journal.txt
+  162094 journal.txt
+Search complete!
+
+bash listallthethings.sh pitbull.txt diary.txt afile.txt
+Searching for files...
+-rw-rw-r--. 1 morgenne morgenne 0 Apr  7 16:22 pitbull.txt
+35397533 pitbull.txt
+-rw-rw-r--. 1 morgenne morgenne 0 Apr  7 16:20 diary.txt
+53199023 diary.txt
+Search complete!
+
+bash listallthethings.sh listallthethings.sh dogs
+Searching for files...
+-rw-rw-r--. 1 morgenne morgenne 873 Apr  7 16:18 listallthethings.sh
+53199022 listallthethings.sh
+Search complete!
 
 Git tree:
 
