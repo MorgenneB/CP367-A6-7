@@ -97,4 +97,7 @@ Reflection:
 When we merged the i-node update branch with the master branch, the i-node 
 branch overwrote what was done in the master branch without warning.
 After the merge commit, we needed to go into the file to re-add the ls -l line,
-and do another commit for this properly merged version. 
+and do another commit for this properly merged version. If the i-node update
+was planned in advance, a temporary blank line/todo comment could have been 
+reserved. The i-node update would take the place of that comment; even if
+a merge conflict occurred, it would require 1 commit instead of 2 to resolve.
